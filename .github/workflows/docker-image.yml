@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: .
+          file: ./Dockerfile
           push: ${{ github.event.inputs.push_image == 'true' || github.event_name == 'push' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
