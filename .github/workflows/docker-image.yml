@@ -13,7 +13,6 @@ on:
           - 'true'
           - 'false'
 
-  # 自动构建（当 docker_vqueue 目录有变更时）
   push:
     branches:
       - 'main'
@@ -46,7 +45,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
-          context: ./docker_vqueue
+          context: .
           file: .
           push: ${{ github.event.inputs.push_image == 'true' || github.event_name == 'push' }}
           tags: ${{ steps.meta.outputs.tags }}
